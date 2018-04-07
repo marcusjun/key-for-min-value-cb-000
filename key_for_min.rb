@@ -23,6 +23,7 @@ def key_for_min_value(name_hash)
     name_hash.each do |key,value|
       #if subsequent value is less than current value
       #then assign subsequent value's key to current key
+      #because it's less than current value
       if name_hash[key]<min_value
         min_key=key
       end
