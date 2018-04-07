@@ -3,17 +3,25 @@
 
 def key_for_min_value(name_hash)
 
-  value_array= name_hash.collect {|key,value| value}
-  key_array= name_hash.collect {|key,value| key}
+  #I needed a way to retrieve starting keys and values to
+  #compare with subsequent keys and values.
 
-  min_value=value_array[0]
+  #Probably shouldn't create arrays of all values and keys
+  #but didn't know if there's another way to get starting values
+  key_array= name_hash.collect {|key,value| key}
+  value_array= name_hash.collect {|key,value| value}
+
+  #retrieve first key and value from above arrays
+  #use these first key/value pairs to compare with subsequent
   min_key=key_array[0]
+  min_value=value_array[0]
+
 
   if name_hash=={}
     nil
   else
     name_hash.each do |key,value|
-      if min_value>name_hash[key]
+      if name_hash[key]<min_value
         min_key=key
       end
     end
